@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package go.micro.api.myauth;
+
+import "proto/imports/api.proto";
+
+service Myauth {
+	rpc Call(go.api.Request) returns (go.api.Response) {}
+	rpc GetJwt(go.api.Request) returns (go.api.Response) {}
+	rpc InspectJwt(go.api.Request) returns (go.api.Response) {}
+
+}
