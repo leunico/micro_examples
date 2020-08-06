@@ -6,6 +6,7 @@ import (
 	"myauth/lib/token"
 
 	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-plugins/micro/metrics/v2"
 	"github.com/micro/micro/v2/cmd"
 	"github.com/micro/micro/v2/plugin"
 )
@@ -19,7 +20,7 @@ func main() {
 			JWTAuthWrapper(tk),
 		),
 	))
-
+	plugin.Register(metrics.NewPlugin())
 	cmd.Init()
 }
 
@@ -29,7 +30,8 @@ func JWTAuthWrapper(t *token.Token) plugin.Handler {
 			log.Info("===========", r.URL.Path)
 			//不需要登录的url地址 strings.HasPrefix(r.URL.Path, "/hello") ||
 			if r.URL.Path == "/myauth/Myauth/GetJwt" ||
-				r.URL.Path == "/myauth/Myauth/InspectJwt" {
+				r.URL.Path == "/myauth/Myauth/InspectJwt" ||
+				r.URL.Path == "/metrics" {
 				h.ServeHTTP(w, r)
 				return
 			}

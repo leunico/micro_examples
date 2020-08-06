@@ -12,7 +12,10 @@ require (
 	github.com/hb-go/pkg v0.0.2 // indirect
 	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-micro/v2 v2.9.1
+	github.com/micro/go-plugins/micro/metrics/v2 v2.9.1 // indirect
+	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1
 	github.com/micro/micro v1.18.0
 	github.com/micro/micro/v2 v2.9.3 // indirect
+	github.com/prometheus/client_golang v1.5.1
 	google.golang.org/protobuf v1.23.0
 )
